@@ -1,0 +1,7 @@
+{
+  "title": "Book Appointment",
+  "subtitle": "With 100+ Trusted Doctors",
+  "buttonText": "Create account",
+  "buttonLink": "/login",
+  "image": "https://onlinehospitalproject.s3.eu-north-1.amazonaws.com/images/appointment_img.png"
+}

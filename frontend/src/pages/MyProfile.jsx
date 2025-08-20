@@ -1,20 +1,22 @@
 import React, { useState } from 'react'
-import { assets } from '../assets/assets'
+import { useContext } from 'react'
+import { AppContext } from '../context/AppContext'
 
 const MyProfile = () => {
+    const { assets } = useContext(AppContext)
 
     const [isEdit, setIsEdit] = useState(false)
 
     const [userData, setUserData] = useState({
-        name: "Mouneesh",
-        image: assets.profile_pic,
-        email: 'mounish@gmail.com',
-        phone: '+91 1234567890',
+        name: "RJ",
+        image: "https://onlinehospitalproject.s3.eu-north-1.amazonaws.com/images/519-0-2.jpg",
+        email: 'RJ@gmail.com',
+        phone: '+91 1234572323',
         address: {
             line1: 'Loyalty Methods',
             line2: 'Hyderabad',
         },
-        gender: 'Male',
+        gender: 'Female',
         dob: '2003-01-20'
     })
 
@@ -74,4 +76,4 @@ const MyProfile = () => {
     )
 }
 
-export default MyProfile
+export default MyProfile;

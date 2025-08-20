@@ -1,0 +1,21 @@
+{
+  
+  "menu": [
+    { "label": "HOME", "path": "/" },
+    { "label": "ALL DOCTORS", "path": "/doctors" },
+    { "label": "ABOUT", "path": "/about" },
+    { "label": "CONTACT", "path": "/contact" }
+  ],
+  "profileMenu": [
+    { "label": "My Profile", "path": "/my-profile" },
+    { "label": "My Appointments", "path": "/my-appointments" },
+    { "label": "Logout", "path": "/" }
+  ],
+  "assets": {
+    "logo": "https://onlinehospitalproject.s3.eu-north-1.amazonaws.com/images/logo.jpg",
+    "profile_pic": "https://onlinehospitalproject.s3.eu-north-1.amazonaws.com/images/profile_pic.png",
+    "dropdown_icon":"https://onlinehospitalproject.s3.eu-north-1.amazonaws.com/images/dropdown_icon.svg",
+    "menu_icon":"https://onlinehospitalproject.s3.eu-north-1.amazonaws.com/images/menu_icon.svg",
+    "cross_icon":"https://onlinehospitalproject.s3.eu-north-1.amazonaws.com/images/cross_icon.png"
+  }
+}

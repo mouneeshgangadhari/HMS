@@ -1,0 +1,13 @@
+{
+  "contact_image": "https://onlinehospitalproject.s3.eu-north-1.amazonaws.com/images/contact_image.png",
+  "office": {
+    "title": "OUR OFFICE",
+    "address": "54709 Willms Station\nSuite 350, Washington, USA",
+    "tel": "(415) 555-0132",
+    "email": "greatstackdev@gmail.com"
+  },
+  "careers": {
+    "title": "CAREERS AT PRESCRIPTO",
+    "description": "Learn more about our teams and job openings."
+  }
+}

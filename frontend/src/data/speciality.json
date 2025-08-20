@@ -1,0 +1,28 @@
+
+
+[
+  {
+    "speciality": "General physician",
+    "image": "https://onlinehospitalproject.s3.eu-north-1.amazonaws.com/specialization/General_physician.svg"
+  },
+  {
+    "speciality": "Gynecologist",
+    "image": "https://onlinehospitalproject.s3.eu-north-1.amazonaws.com/specialization/Gynecologist.svg"
+  },
+  {
+    "speciality": "Dermatologist",
+    "image": "https://onlinehospitalproject.s3.eu-north-1.amazonaws.com/specialization/Dermatologist.svg"
+  },
+  {
+    "speciality": "Pediatricians",
+    "image": "https://onlinehospitalproject.s3.eu-north-1.amazonaws.com/specialization/Pediatricians.svg"
+  },
+  {
+    "speciality": "Neurologist",
+    "image": "https://onlinehospitalproject.s3.eu-north-1.amazonaws.com/specialization/Neurologist.svg"
+  },
+  {
+    "speciality": "Gastroenterologist",
+    "image": "https://onlinehospitalproject.s3.eu-north-1.amazonaws.com/specialization/Gastroenterologist.svg"
+  }
+]

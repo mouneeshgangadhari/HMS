@@ -1,0 +1,19 @@
+{
+  "appointment_img": "/assets/appointment_img.png",
+  "header_img": "/assets/header_img.png",
+  "group_profiles": "/assets/group_profiles.png",
+  "profile_pic": "/assets/profile_pic.png",
+  "contact_image": "/assets/contact_image.png",
+  "about_image": "/assets/about_image.png",
+  "logo": "/assets/logo.jpg",
+  "dropdown_icon": "/assets/dropdown_icon.svg",
+  "menu_icon": "/assets/menu_icon.svg",
+  "cross_icon": "/assets/cross_icon.png",
+  "chats_icon": "/assets/chats_icon.svg",
+  "verified_icon": "/assets/verified_icon.svg",
+  "arrow_icon": "/assets/arrow_icon.svg",
+  "info_icon": "/assets/info_icon.svg",
+  "upload_icon": "/assets/upload_icon.png",
+  "stripe_logo": "/assets/stripe_logo.png",
+  "razorpay_logo": "/assets/razorpay_logo.png"
+}

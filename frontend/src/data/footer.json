@@ -1,0 +1,15 @@
+{
+  "about": {
+    "logo": "https://onlinehospitalproject.s3.eu-north-1.amazonaws.com/images/logo.jpg",
+    "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+  },
+  "company": {
+    "title": "COMPANY",
+    "links": ["Home", "About us", "Delivery", "Privacy policy"]
+  },
+  "contact": {
+    "title": "GET IN TOUCH",
+    "info": ["7993033966", "sbattula@loyaltymethods.com"]
+  },
+  "copyright": "Copyright 2024 @ Prescripto.com - All Right Reserved."
+}

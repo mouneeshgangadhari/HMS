@@ -1,23 +1,61 @@
-import { createContext } from "react";
-import { doctors } from "../assets/assets";
+import { createContext, useEffect, useState } from "react";
+import axios from "axios";
 
-export const AppContext = createContext()
+export const AppContext = createContext();
 
-const AppContextProvider = (props) => {
+const AppContextProvider = ({ children }) => {
+  const [doctors, setDoctors] = useState([]);
+  const [specialities, setSpecialities] = useState([]);
+  const [assets, setAssets] = useState([]);
+  const [darkMode, setDarkMode] = useState(() => {
+    return localStorage.getItem("theme") === "dark";
+  });
 
-    const currencySymbol = '$'
+  const currencySymbol = "$";
 
-    const value = {
-        doctors,
-        currencySymbol
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(
+          "https://onlinehospitalproject.s3.eu-north-1.amazonaws.com/data.json"
+        );
+        console.log("API Response:", res.data);
+
+        setDoctors(res.data.doctors || []);
+        setSpecialities(res.data.specialityData || []);
+        setAssets(res.data.assets || []);
+      } catch (err) {
+        console.error("Error fetching data:", err);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("theme", "light");
     }
+  }, [darkMode]);
 
-    return (
-        <AppContext.Provider value={value}>
-            {props.children}
-        </AppContext.Provider>
-    )
+  return (
+    <AppContext.Provider
+      value={{
+        doctors,
+        specialities,
+        assets,
+        currencySymbol,
+        darkMode,
+        setDarkMode,
+      }}
+    >
+      {children}
+    </AppContext.Provider>
+  );
+};
 
-}
-
-export default AppContextProvider
+export default AppContextProvider;

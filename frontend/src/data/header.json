@@ -1,0 +1,13 @@
+{
+  "title": "Book Appointment With Trusted Doctors ",
+  "description": "Simply browse through our extensive list of trusted doctors, schedule your appointment hassle-free.",
+  "buttonText": "Book appointment",
+  "buttonLink": "#speciality",
+  "assets":
+    {
+      "group_profiles":"https://onlinehospitalproject.s3.eu-north-1.amazonaws.com/images/group_profiles.png",
+      "arrow_icon":"https://onlinehospitalproject.s3.eu-north-1.amazonaws.com/images/arrow_icon.svg",
+      "header_img":"https://onlinehospitalproject.s3.eu-north-1.amazonaws.com/images/header_img.png"
+    }
+  
+}
