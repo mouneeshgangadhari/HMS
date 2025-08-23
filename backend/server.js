@@ -1,13 +1,14 @@
-const express = require('express');
-const app = express();
-app.use(express.json());
-const cors = require("cors");
-
-app.get("/",(req,res)=>{
-    res.send("Welcome to the backend server!");
+require('dotenv').config();
+const app = require('./app');
+const connectDB = require('./config/db.js');
+const PORT = process.env.PORT || 8000;
+connectDB()
+.then(() => {
+app.listen(PORT, () => {
+    console.log(` ✅ Server listening on ${PORT}`);
+});
 })
-
-
-app.listen(8000,()=>{
-    console.log("Server is running on port 8000");
-})
+.catch((err) => {
+    console.error(' ❌ Failed to connect DB', err); 
+    process.exit(1);
+});

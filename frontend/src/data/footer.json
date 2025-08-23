@@ -1,15 +1,16 @@
 {
   "about": {
     "logo": "https://onlinehospitalproject.s3.eu-north-1.amazonaws.com/images/logo.jpg",
-    "text": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+    "text": "Our Hospital Management System  app is designed to simplify and digitize hospital operations, making healthcare smarter, faster, and more efficient. From patient registration to discharge, our app brings everything under one secure platform."
   },
   "company": {
     "title": "COMPANY",
-    "links": ["Home", "About us", "Delivery", "Privacy policy"]
+    "names": ["Home", "About us", "Contact"],
+    "links": ["/", "/about", "/contact"]
   },
   "contact": {
     "title": "GET IN TOUCH",
-    "info": ["7993033966", "sbattula@loyaltymethods.com"]
+    "info": ["8523051130", "mgangadhari@loyaltymethods.com"]
   },
-  "copyright": "Copyright 2024 @ Prescripto.com - All Right Reserved."
+  "copyright": "Copyright 2025 @ Prescripto.com - All Right Reserved."
 }

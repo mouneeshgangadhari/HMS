@@ -20,7 +20,6 @@ const Navbar = () => {
         alt="logo"
       />
 
-      {/* Desktop Menu */}
       <ul className="md:flex items-start gap-5 font-medium hidden">
         {navbarData.menu.map((item, index) => (
           <NavLink key={index} to={item.path}>
@@ -39,7 +38,6 @@ const Navbar = () => {
                focus:ring-primary focus:ring-offset-2"
     aria-label="Toggle Dark Mode"
   >
-    {/* Sun / Moon Icons */}
     <span className="absolute left-1 text-yellow-500 dark:hidden">
       <SunIcon size={16} />
     </span>
@@ -47,11 +45,6 @@ const Navbar = () => {
       <MoonIcon size={16} />
     </span>
 
-    {/* Sliding circle */}
-    {/* <div
-      className={`w-5 h-5 bg-white rounded-full shadow-md transform transition-transform duration-300
-        ${darkMode ? "translate-x-7" : "translate-x-0"}`}
-    /> */}
   </button>
 
         {token ? (
@@ -69,7 +62,6 @@ const Navbar = () => {
               alt="dropdown"
             />
 
-            {/* Profile Dropdown */}
             <div className="absolute top-0 right-0 pt-14 text-base font-medium text-gray-600 dark:text-gray-200 z-20 hidden group-hover:block">
               <div className="min-w-48 bg-stone-100 dark:bg-gray-800 rounded flex flex-col gap-4 p-4">
                 {navbarData.profileMenu.map((item, index) => (
@@ -94,7 +86,7 @@ const Navbar = () => {
             onClick={() => navigate("/login")}
             className="bg-primary text-white px-8 py-3 rounded-full font-light hidden md:block"
           >
-            Create account
+            Login 
           </button>
         )}
 
@@ -106,7 +98,6 @@ const Navbar = () => {
           alt="menu"
         />
 
-        {/* ---- Mobile Menu ---- */}
         <div
           className={`md:hidden right-0 top-0 bottom-0 z-20 overflow-hidden bg-white dark:bg-gray-900 transition-all ${
             showMenu ? "fixed w-full" : "h-0 w-0"

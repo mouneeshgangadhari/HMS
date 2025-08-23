@@ -9,6 +9,7 @@ import Contact from './pages/Contact'
 import Appointment from './pages/Appointment'
 import MyAppointments from './pages/MyAppointments'
 import MyProfile from './pages/MyProfile'
+import Register from './pages/Register'
 import Footer from './components/Footer'
 import { useContext, useEffect } from 'react'
 import { AppContext } from './context/AppContext'
@@ -30,6 +31,7 @@ const App = () => {
         <Route path='/' element={<Home />} />
         <Route path='/doctors' element={<Doctors />} />
         <Route path='/doctors/:speciality' element={<Doctors />} />
+        <Route path='/register' element={<Register />} />
         <Route path='/login' element={<Login />} />
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />

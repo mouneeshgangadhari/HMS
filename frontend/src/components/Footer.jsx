@@ -1,4 +1,5 @@
 
+import { Link } from "react-router-dom";
 import footerData from "../data/footer.json";
 
 const Footer = () => {
@@ -17,8 +18,10 @@ const Footer = () => {
         <div>
           <p className="text-xl font-medium mb-5 text-gray-900 dark:text-gray-100">{footerData.company.title}</p>
           <ul className="flex flex-col gap-2 text-gray-600 dark:text-gray-400">
-            {footerData.company.links.map((link, index) => (
-              <li key={index} className="hover:text-gray-900 dark:hover:text-gray-200 cursor-pointer transition-colors">{link}</li>
+            {footerData.company.names.map((name, index) => (
+              <Link key={index} to={footerData.company.links[index]}>
+                <li className="hover:text-gray-900 dark:hover:text-gray-200 cursor-pointer transition-colors">{name}</li>
+              </Link>
             ))}
           </ul>
         </div>
@@ -28,7 +31,9 @@ const Footer = () => {
           <p className="text-xl font-medium mb-5 text-gray-900 dark:text-gray-100">{footerData.contact.title}</p>
           <ul className="flex flex-col gap-2 text-gray-600 dark:text-gray-400">
             {footerData.contact.info.map((item, index) => (
-              <li key={index}>{item}</li>
+              <Link key={index} to={`mailto:${item}`}>
+                <li className="hover:text-gray-900 dark:hover:text-gray-200 cursor-pointer transition-colors">{item}</li>
+              </Link>
             ))}
           </ul>
         </div>
