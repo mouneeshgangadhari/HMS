@@ -7,6 +7,8 @@ rateLimit = require('express-rate-limit');
 const { errorHandler, notFound } = require('./middleware/error.middleware');
 const authRoutes = require('./routes/auth.routes');
 const protectedRoutes = require('./routes/protected.routes');
+const appointmentRoutes = require('./routes/appointment.routes');
+const doctorRoutes = require('./routes/doctor.routes');
 const app = express();
 app.set('trust proxy', 1);
 app.use(helmet());
@@ -25,6 +27,8 @@ const authLimiter = rateLimit({
 app.use('/api/auth', authLimiter);
 app.get('/health', (req, res) => res.json({ status: 'ok' }));
 app.use('/api/auth', authRoutes);
+app.use('/api/appointment', appointmentRoutes);
+app.use('/api/doctor', doctorRoutes);
 app.use('/api', protectedRoutes);
 app.use(notFound);
 app.use(errorHandler);

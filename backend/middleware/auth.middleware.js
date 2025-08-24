@@ -1,14 +1,20 @@
 const {verifyAccessToken}= require("../utils/jwt.js");
-const requireAuth=(req,res,next)=>{
-    try{
-        const header=req.headers.authorization;
-        const token=header.startsWith("Bearer") ? header.split(" ")[1] : req.cookies?.accessToken;
-        if(!token) return res.sendStatus(401).json({msg:"unauthorized"});
-        const payload=verifyAccessToken(token);
-        req.user={id:payload.sub,role:payload.role};
+const requireAuth = (req, res, next) => {
+    try {
+        const header = req.headers.authorization || '';
+        console.log('Authorization header:', header);
+        let token = null;
+        if (header.startsWith("Bearer ")) {
+            token = header.split(" ")[1];
+        } else if (req.cookies?.accessToken) {
+            token = req.cookies.accessToken;
+        }
+        if (!token) return res.status(401).json({ msg: "unauthorized" });
+        const payload = verifyAccessToken(token);
+        req.user = { id: payload.sub, role: payload.role };
         next();
-    }catch(err){
-       return res.status(401).json({msg:"Unauthorized"});
+    } catch (err) {
+        return res.status(401).json({ msg: "Unauthorized" });
     }
 }
 

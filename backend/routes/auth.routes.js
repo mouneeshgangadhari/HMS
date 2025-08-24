@@ -8,4 +8,6 @@ router.post('/login', validate(LoginSchema), ctrl.login);
 router.post('/refresh', ctrl.refresh);
 router.post('/logout', ctrl.logout);
 router.get('/me', requireAuth, ctrl.me);
+router.post('/bulk', ctrl.bulkAddAppointments);
+router.put("/me",requireAuth , ctrl.updateMe);
 module.exports = router;

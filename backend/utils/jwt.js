@@ -1,5 +1,6 @@
 const jwt=require('jsonwebtoken');
 const signAccessToken = (userId,role) => {
+    console.log( "with role:", role);
     const payload = {
         sub: userId,
         role
@@ -17,11 +18,11 @@ const signRefreshToken=(userId,role)=>{
 
 
 const verifyAccessToken=(token)=>{
-    jwt.verify(token, process.env.JWT_SECRET_KEY);
+    return jwt.verify(token, process.env.JWT_SECRET_KEY);
 }
 
 const verifyRefreshToken=(token)=>{
-    jwt.verify(token, process.env.REFRESH_TOKEN_SECRET_KEY);
+    return jwt.verify(token, process.env.REFRESH_TOKEN_SECRET_KEY);
 }
 
 module.exports={

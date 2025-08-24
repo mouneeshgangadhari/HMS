@@ -7,7 +7,7 @@ const RegisterSchema = z.object({
     .regex(/[a-z]/, 'Include a lowercase')
     .regex(/[0-9]/, 'Include a number')
     .regex(/[^A-Za-z0-9]/, 'Include a symbol'),
-    role: z.enum(['user', 'admin']).optional()
+    role: z.enum(['Patient']).optional()
 });
 const LoginSchema = z.object({
     email: z.string().email().trim().toLowerCase(),

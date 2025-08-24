@@ -56,8 +56,8 @@ exports.login = async (req, res) => {
 
   setAccessCookie(res, accessToken);
   setRefreshCookie(res, refreshToken);
-
-  res.json({ user: user.toJSON(), accessToken });
+  console.log(accessToken);
+  return res.json({ user: user.toJSON(), accessToken });
 };
 
 exports.refresh = async (req, res) => {
@@ -100,6 +100,85 @@ exports.logout = async (req, res) => {
 };
 
 exports.me = async (req, res) => {
-    const user = await User.findById(req.user.id).lean();
+  try {
+    const patientId = req.query.patientId; // since frontend sends it in params
+
+    if (!patientId) {
+      return res.status(400).json({ error: "patientId is required" });
+    }
+
+    const user = await User.findById(patientId).lean();
+
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
+
     res.json({ user });
+  } catch (err) {
+    console.error("Error fetching user:", err);
+    res.status(500).json({ error: "Internal server error" });
+  }
+};
+
+exports.updateMe = async (req, res) => {
+  try {
+    const { patientId } = req.query; // because frontend sends in params
+    const updates = req.body;
+
+    const updatedUser = await User.findByIdAndUpdate(patientId, updates, {
+      new: true,
+      runValidators: true,
+    }).lean();
+
+    if (!updatedUser) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    res.json({ user: updatedUser });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Server error" });
+  }
+};
+
+exports.bulkAddAppointments = async (req, res) => {
+  try {
+    const appointments = req.body;
+
+    if (!Array.isArray(appointments) || appointments.length === 0) {
+      return res.status(400).json({ error: "Provide a list of appointments" });
+    }
+
+    // Insert all appointments
+    const createdAppointments = await Appointment.insertMany(appointments);
+
+    // Update doctors and users
+    await Promise.all(
+      createdAppointments.map(async (appointment) => {
+        // Add appointment ref to Doctor
+        await Doctor.findByIdAndUpdate(
+          appointment.doctor,
+          { $push: { appointments: appointment._id } },
+          { new: true }
+        );
+
+        // Add appointment ref to User (Patient)
+        await User.findByIdAndUpdate(
+          appointment.patient,
+          { $push: { appointments: appointment._id } },
+          { new: true }
+        );
+      })
+    );
+
+    res.status(201).json({
+      message: "Appointments added successfully",
+      count: createdAppointments.length,
+      appointments: createdAppointments
+    });
+
+  } catch (err) {
+    console.error("Bulk Appointments Error:", err);
+    res.status(500).json({ error: "Internal server error" });
+  }
 };

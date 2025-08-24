@@ -1,13 +1,53 @@
 const mongoose=require("mongoose");
 const bcrypt = require("bcryptjs");
 const { trim } = require("zod");
-const UserSchema=new mongoose.Schema({
-    name:{type:String,required:true,trim,minLength:2,maxLength:50},
-    email:{type:String,required:true,trim:true,unique:true,lowercase:true,index:true},
-    password:{type:String,required:true,minLength:6,maxLength:100,select:false},
-    role:{type:String,enum:["user","admin","Doctor"],default:"user"},
-    refreshTokenHash:{type:String,select:false}
-},{timestamps:true });
+
+const UserSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+    trim: true,
+    minLength: 2,
+    maxLength: 50
+  },
+  age: {
+    type: Number,
+  },
+  phone: {
+    type: String,
+  },
+  email: {
+    type: String,
+    required: true,
+    trim: true,
+    unique: true,
+    lowercase: true,
+    index: true
+  },
+  password: {
+    type: String,
+    required: true,
+    minLength: 6,
+    maxLength: 100,
+    select: false // hide password by default in queries
+  },
+  role: {
+    type: String,
+    enum: ["Patient"],
+    default: "Patient"
+  },
+  appointments: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Appointment"
+    }
+  ],
+  refreshTokenHash: {
+    type: String,
+    select: false
+  }
+}, { timestamps: true });
+
 
 UserSchema.pre("save",async function(next){
     if(!this.isModified("password")) return next();

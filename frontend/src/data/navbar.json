@@ -13,7 +13,7 @@
   ],
   "assets": {
     "logo": "https://onlinehospitalproject.s3.eu-north-1.amazonaws.com/images/logo.jpg",
-    "profile_pic": "https://onlinehospitalproject.s3.eu-north-1.amazonaws.com/images/profile_pic.png",
+    "profile_pic": "RG",
     "dropdown_icon":"https://onlinehospitalproject.s3.eu-north-1.amazonaws.com/images/dropdown_icon.svg",
     "menu_icon":"https://onlinehospitalproject.s3.eu-north-1.amazonaws.com/images/menu_icon.svg",
     "cross_icon":"https://onlinehospitalproject.s3.eu-north-1.amazonaws.com/images/cross_icon.png"
